@@ -7,6 +7,8 @@ services:
         container_name: ampache_config1
         volumes:
             - /srv/docker_volumes/ampache/config:/var/www/config
+        depends_on:
+            - mariadb
         ports:
             - "80:80"
 
