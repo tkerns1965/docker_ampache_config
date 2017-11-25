@@ -54,7 +54,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
         else \
             { echo 'Installer corrupt'; unlink('composer-setup.php'); } \
         echo PHP_EOL;" && \
-    php composer-setup.php && \
+    php composer-setup.php --install-dir=/usr/local/bin && \
     php -r "unlink('composer-setup.php');"
 
 RUN cd /var/www && \
