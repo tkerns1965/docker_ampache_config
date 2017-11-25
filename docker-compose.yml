@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+    ampache:
+        build: ampache
+        image: ampache_config
+        container_name: ampache_config1
+        # volumes:
+        #     - /srv/docker_volumes/ampache/config:/var/www/config
+        ports:
+            - "80:80"
