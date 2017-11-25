@@ -5,7 +5,24 @@ services:
         build: ampache
         image: ampache_config
         container_name: ampache_config1
-        # volumes:
-        #     - /srv/docker_volumes/ampache/config:/var/www/config
+        volumes:
+            - /srv/docker_volumes/ampache/config:/var/www/config
         ports:
             - "80:80"
+
+    mariadb:
+        # build: mariadb
+        # image: owncloud_mariadb
+        image: webhippie/mariadb:latest
+        container_name: owncloud_mariadb1
+        volumes:
+            - /srv/docker_volumes/mysql:/var/lib/mysql
+        environment:
+            - MARIADB_ROOT_PASSWORD=owncloud
+            - MARIADB_USERNAME=owncloud
+            - MARIADB_PASSWORD=owncloud
+            - MARIADB_DATABASE=owncloud
+            - MARIADB_MAX_ALLOWED_PACKET=128M
+            - MARIADB_INNODB_LOG_FILE_SIZE=64M
+            - MARIADB_INNODB_LARGE_PREFIX=ON
+            - MARIADB_INNODB_FILE_FORMAT=Barracuda
