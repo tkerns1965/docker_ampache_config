@@ -1,1 +1,1 @@
-
+FROM webhippie/mariadb:latest
