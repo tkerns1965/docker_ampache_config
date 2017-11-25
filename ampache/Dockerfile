@@ -58,7 +58,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
     php -r "unlink('composer-setup.php');"
 
 RUN cd /var/www && \
-    php composer.phar update --prefer-source
+    php /usr/local/bin/composer.phar update --prefer-source
 
 # COPY ampache.cfg.php.dist /var/temp/ampache.cfg.php.dist
 COPY 001-ampache.conf /etc/apache2/sites-available/
