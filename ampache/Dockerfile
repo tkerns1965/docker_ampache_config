@@ -60,7 +60,6 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
 RUN cd /var/www && \
     php /usr/local/bin/composer.phar update --prefer-source
 
-# COPY ampache.cfg.php.dist /var/temp/ampache.cfg.php.dist
 COPY 001-ampache.conf /etc/apache2/sites-available/
 
 RUN rm -rf /etc/apache2/sites-enabled/* && \
@@ -68,15 +67,8 @@ RUN rm -rf /etc/apache2/sites-enabled/* && \
         /etc/apache2/sites-enabled/ && \
     a2enmod rewrite
 
-# RUN echo '30 7 * * *  www-data php /var/www/bin/catalog_update.inc' >> \
-#         /etc/crontab
+COPY httpd-foreground /usr/local/bin/
 
-# VOLUME ["/media"]
-# VOLUME ["/var/www/config"]
-# VOLUME ["/var/www/themes"]
+EXPOSE 80
 
-# COPY run.sh /
-
-# EXPOSE 80
-
-# CMD ["/run.sh"]
+CMD ["httpd-foreground"]
