@@ -6,7 +6,7 @@ services:
         image: ampache_config
         container_name: ampache_config1
         volumes:
-            - /srv/docker_volumes/ampache/config:/var/www/config
+            - /srv/docker_volumes/ampache/config:/var/www/config1
         depends_on:
             - mariadb
         ports:
