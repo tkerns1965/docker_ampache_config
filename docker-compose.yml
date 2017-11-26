@@ -6,7 +6,10 @@ services:
         image: ampache_config
         container_name: ampache_config1
         volumes:
-            - /srv/docker_volumes/ampache/config:/var/www/config1
+            - /srv/docker_volumes/ampache/config:/var/www/config
+            # - /srv/docker_volumes/ampache/config:/var/www/config1
+            - /etc/localtime:/etc/localtime:ro
+            - /etc/timezone:/etc/timezone:ro
         depends_on:
             - mariadb
         ports:
