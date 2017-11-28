@@ -1,7 +1,8 @@
 #!/bin/bash
+chown www-data:www-data /var/www/config1/
 cp -a /var/www/config/. /var/www/config1
 cd /var/www/config1/
-sed -n \
+sudo -u www-data sed \
     -e 's/\(database_hostname = \)localhost/\1'$AMPACHE_DB_HOSTNAME'/p' \
     -e 's/\(database_username = \)username/\1'$AMPACHE_DB_USERNAME'/p' \
     -e 's/\(database_password = \)password/\1'$AMPACHE_DB_PASSWORD'/p' \
