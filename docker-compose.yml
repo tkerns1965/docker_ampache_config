@@ -36,4 +36,4 @@ services:
             - MARIADB_INNODB_LARGE_PREFIX=ON
             - MARIADB_INNODB_FILE_FORMAT=Barracuda
         volumes:
-            - /srv/docker_volumes/mysql:/var/lib/mysql
+            - /srv/docker_volumes/mariadb:/var/lib/mysql
