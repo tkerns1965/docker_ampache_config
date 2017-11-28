@@ -7,6 +7,7 @@ services:
         container_name: ampache_config1
         environment:
             - AMPACHE_DB_HOSTNAME=mariadb
+            - AMPACHE_DB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
             - AMPACHE_DB_NAME=${AMPACHE_DB_NAME}
             - AMPACHE_DB_USERNAME=${AMPACHE_DB_USERNAME}
             - AMPACHE_DB_PASSWORD=${AMPACHE_DB_PASSWORD}
