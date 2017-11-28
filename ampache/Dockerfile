@@ -30,6 +30,7 @@ RUN apt-get update && \
         libtheora-dev \
         libvorbis-dev \
         libvpx-dev \
+        mysql-client \
         php5 \
         php5-curl \
         php5-json \
