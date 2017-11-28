@@ -1,7 +1,6 @@
 #!/bin/bash
 chown www-data:www-data /var/www/config1/
 cp -a /var/www/config/. /var/www/config1
-# cp -a /var/www/config1/ampache.cfg.php.dist /var/www/config1/ampache.cfg.php
 cd /var/www/config1/
 sed \
     -e 's/\(database_hostname = \)localhost/\1'$AMPACHE_DB_HOSTNAME'/' \
@@ -27,3 +26,11 @@ sed \
     < ampache.cfg.php.dist \
     > ampache.cfg.php
 chown www-data:www-data ampache.cfg.php
+chmod 664 ampache.cfg.php
+cd /var/www/sql/
+sed -i 's/@db_name/'$AMPACHE_DB_NAME'/g' 001_create_db.sql
+sed -i \
+    's/@db_name/'$AMPACHE_DB_NAME'/g; \
+    s/@usr_name/'$AMPACHE_DB_USERNAME'/g; \
+    s/@usr_passwd/'$AMPACHE_DB_PASSWORD'/g' \
+    002_create_usr.sql
