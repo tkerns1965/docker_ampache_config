@@ -6,9 +6,11 @@ services:
         image: ampache_config
         container_name: ampache_config1
         environment:
-            - AMPACHE_DB_HOST=mariadb
+            - AMPACHE_DB_HOSTNAME=mariadb
+            - AMPACHE_DB_NAME=${AMPACHE_DB_NAME}
             - AMPACHE_DB_USERNAME=${AMPACHE_DB_USERNAME}
             - AMPACHE_DB_PASSWORD=${AMPACHE_DB_PASSWORD}
+            - AMPACHE_SECRET_KEY=${AMPACHE_SECRET_KEY}
         volumes:
             # - /srv/docker_volumes/ampache/config:/var/www/config
             - /srv/docker_volumes/ampache/config:/var/www/config1
@@ -23,12 +25,12 @@ services:
         # build: mariadb
         # image: owncloud_mariadb
         image: webhippie/mariadb:latest
-        container_name: owncloud_mariadb1
+        container_name: ampache_mariadb1
         environment:
-            - MARIADB_ROOT_PASSWORD=owncloud
-            - MARIADB_USERNAME=owncloud
-            - MARIADB_PASSWORD=owncloud
-            - MARIADB_DATABASE=owncloud
+            - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
+            - MARIADB_USERNAME=${MARIADB_USERNAME}
+            - MARIADB_PASSWORD=${MARIADB_PASSWORD}
+            - MARIADB_DATABASE=${MARIADB_DATABASE}
             - MARIADB_MAX_ALLOWED_PACKET=128M
             - MARIADB_INNODB_LOG_FILE_SIZE=64M
             - MARIADB_INNODB_LARGE_PREFIX=ON
