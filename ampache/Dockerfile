@@ -68,6 +68,8 @@ RUN rm -rf /etc/apache2/sites-enabled/* && \
         /etc/apache2/sites-enabled/ && \
     a2enmod rewrite
 
+COPY *.sql /var/www/sql/
+COPY ampache_config.sh /root/
 COPY httpd-foreground /usr/local/bin/
 
 EXPOSE 80
