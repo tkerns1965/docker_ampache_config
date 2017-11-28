@@ -26,3 +26,4 @@ sed \
     -e 's/;\(transcode_cmd = "avconv"\)/\1/' \
     < ampache.cfg.php.dist \
     > ampache.cfg.php
+chown www-data:www-data ampache.cfg.php
