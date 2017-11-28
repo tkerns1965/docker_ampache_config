@@ -1,4 +1,6 @@
 #!/bin/bash
+cp -a /var/www/config/. /var/www/config1
+cd /var/www/config1/
 sed -n \
     -e 's/\(database_hostname = \)localhost/\1'$AMPACHE_DB_HOSTNAME'/p' \
     -e 's/\(database_username = \)username/\1'$AMPACHE_DB_USERNAME'/p' \
@@ -20,4 +22,5 @@ sed -n \
     -e 's/;\(encode_target = mp3\)/\1/p' \
     -e 's/;\(encode_video_target = webm\)/\1/p' \
     -e 's/;\(transcode_cmd = "avconv"\)/\1/p' \
-    < ampache.cfg.php.dist
+    < ampache.cfg.php.dist \
+    > ampache.cfg.php
