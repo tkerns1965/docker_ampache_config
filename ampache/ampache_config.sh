@@ -35,4 +35,4 @@ cd /var/www/sql/
 #     's/@db_name/'$AMPACHE_DB_NAME'/g;s/@usr_name/'$AMPACHE_DB_USERNAME'/g;s/@usr_passwd/'$AMPACHE_DB_PASSWORD'/g' \
 #     002_create_usr.sql
 mysql -h$AMPACHE_DB_HOSTNAME -u$AMPACHE_DB_USERNAME -p$AMPACHE_DB_PASSWORD \
-    -e"use $AMPACHE_DB_NAME; source ampache.sql"
+    -e"use $AMPACHE_DB_NAME; source ampache.sql;"
