@@ -7,10 +7,10 @@ services:
         container_name: ampache_config1
         environment:
             - AMPACHE_DB_HOSTNAME=mariadb
-            - AMPACHE_DB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
-            - AMPACHE_DB_NAME=${AMPACHE_DB_NAME}
-            - AMPACHE_DB_USERNAME=${AMPACHE_DB_USERNAME}
-            - AMPACHE_DB_PASSWORD=${AMPACHE_DB_PASSWORD}
+            # - AMPACHE_DB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
+            - AMPACHE_DB_USERNAME=${MARIADB_USERNAME}
+            - AMPACHE_DB_PASSWORD=${MARIADB_PASSWORD}
+            - AMPACHE_DB_NAME=${MARIADB_DATABASE}
             - AMPACHE_SECRET_KEY=${AMPACHE_SECRET_KEY}
         volumes:
             # - /srv/docker_volumes/ampache/config:/var/www/config
