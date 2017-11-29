@@ -15,8 +15,8 @@ services:
         volumes:
             # - /srv/docker_volumes/ampache/config:/var/www/config
             - /srv/docker_volumes/ampache/config:/var/www/config1
-            - /etc/localtime:/etc/localtime:ro
-            - /etc/timezone:/etc/timezone:ro
+            # - /etc/localtime:/etc/localtime:ro
+            # - /etc/timezone:/etc/timezone:ro
         ports:
             - "80:80"
         depends_on:
@@ -38,3 +38,8 @@ services:
             - MARIADB_INNODB_FILE_FORMAT=Barracuda
         volumes:
             - /srv/docker_volumes/mariadb:/var/lib/mysql
+        healthcheck:
+            test: ["CMD", "/usr/bin/healthcheck"]
+            interval: 30s
+            timeout: 10s
+            retries: 5
