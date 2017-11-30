@@ -27,12 +27,13 @@ sed \
     > ampache.cfg.php
 chown www-data:www-data ampache.cfg.php
 chmod 664 ampache.cfg.php
-cd /var/www/sql/
+# cd /var/www/sql/
 # sed -i \
 #     's/@db_name/'$AMPACHE_DB_NAME'/g' \
 #     001_create_db.sql
 # sed -i \
 #     's/@db_name/'$AMPACHE_DB_NAME'/g;s/@usr_name/'$AMPACHE_DB_USERNAME'/g;s/@usr_passwd/'$AMPACHE_DB_PASSWORD'/g' \
 #     002_create_usr.sql
-mysql -h$AMPACHE_DB_HOSTNAME -u$AMPACHE_DB_USERNAME -p$AMPACHE_DB_PASSWORD \
-    -e"use $AMPACHE_DB_NAME; source ampache.sql;"
+# mysql -h$AMPACHE_DB_HOSTNAME -u$AMPACHE_DB_USERNAME -p$AMPACHE_DB_PASSWORD \
+#     -e"use $AMPACHE_DB_NAME; source ampache.sql;"
+bash /root/wait_for_mariadb.sh
