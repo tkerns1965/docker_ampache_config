@@ -7,7 +7,7 @@ host="$1"
 shift
 cmd="$@"
 
-until mysql -h$AMPACHE_DB_HOSTNAME -p$AMPACHE_DB_ROOT_PASSWORD '\q'; do
+until mysql -h$AMPACHE_DB_HOSTNAME -p$AMPACHE_DB_ROOT_PASSWORD -e'\q'; do
     >&2 echo "mariadb is unavailable - sleeping"
     sleep 2
 done
