@@ -36,4 +36,4 @@ chmod 664 ampache.cfg.php
 #     002_create_usr.sql
 # mysql -h$AMPACHE_DB_HOSTNAME -u$AMPACHE_DB_USERNAME -p$AMPACHE_DB_PASSWORD \
 #     -e"use $AMPACHE_DB_NAME; source ampache.sql;"
-bash /root/wait_for_mariadb.sh
+bash /root/wait_for_mariadb.sh 1 2 3 4 5
