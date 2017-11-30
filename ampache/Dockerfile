@@ -70,6 +70,7 @@ RUN rm -rf /etc/apache2/sites-enabled/* && \
 
 # COPY *.sql /var/www/sql/
 COPY ampache_config.sh /root/
+COPY wait_for_mariadb.sh /root/
 COPY httpd-foreground /usr/local/bin/
 
 EXPOSE 80
